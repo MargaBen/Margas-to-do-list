@@ -5,27 +5,29 @@ import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 
+const $q = useQuasar();
 const router = useRouter();
 const userStore = useUserStore();
 const { user, session } = storeToRefs(userStore);
 
+const name = ref(null);
 const email = ref(null);
 const password = ref(null);
-const confirmPassword = ref(null);
 const isPwd = ref(true);
-const isConfirmPwd = ref(true);
+const loading = ref(false);
 
-async function goSignUp() {
-  if (password.value !== confirmPassword.value) {
-    console.log("Passwords not matching");
+async function signIn() {
+  if (!password.value) {
+    alert("password or e-mail incorrect!");
   } else {
     try {
-      await userStore.signUp(email.value, password.value);
-      if (user.value) {
-        alert("please check your email for confirmation");
-      }
-    } catch (error) {
-      console.log(error);
+      loading.value = true;
+      await userStore.signIn(email.value, password.value);
+      router.push({ path: "/" });
+    } catch {
+      alert("try again... something is wrong 😢");
+    } finally {
+      loading.value = false;
     }
   }
 }
@@ -34,39 +36,17 @@ async function goSignUp() {
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-y-md column">
-      <q-form @submit="goSignUp()" class="q-gutter signup-class" :width="550">
-        <q-input
-          v-model="email"
-          :dense="dense"
-          type="email"
-          label="please enter your e-mail"
-          hint=""
-        >
+      <q-form @submit="signIn" class="q-gutter signup-class" :width="550">
+        <q-input v-model="email" dense type="email" label="e-mail" hint="">
           <template v-slot:append> <q-icon name="mail" /> </template>
         </q-input>
 
         <q-input
           v-model="password"
-          dense
-          :type="isPwd ? 'password' : 'text'"
-          hint=""
-          label="create password"
-        >
-          <template v-slot:append>
-            <q-icon
-              :name="isPwd ? 'visibility_off' : 'visibility'"
-              class="cursor-pointer"
-              @click="isPwd = !isPwd"
-            />
-          </template>
-        </q-input>
-
-        <q-input
-          v-model="confirmPassword"
           :dense="dense"
           :type="isPwd ? 'password' : 'text'"
-          label="confirm password"
           hint=""
+          label="password"
         >
           <template v-slot:append>
             <q-icon
