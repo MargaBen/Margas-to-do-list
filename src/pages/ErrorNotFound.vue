@@ -7,7 +7,7 @@
 
       <div class="text-h2" style="opacity: 0.4">
         Oops. Nothing here...
-        <h1>I love U</h1>
+        <h1>but I do love U</h1>
       </div>
 
       <q-btn

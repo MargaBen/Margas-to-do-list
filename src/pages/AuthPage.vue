@@ -9,23 +9,24 @@ const SignedUp = ref(true);
 
 <template>
   <h1></h1>
-  <Signup v-if="SignedUp" />
-  <Signin v-else />
+  <Signin v-if="SignedUp" />
+  <Signup v-else />
+
   <span v-if="SignedUp" class="signed-up-requested">
     <p>
-      already signed up?
-
+      no account?
       <q-btn @click="SignedUp = !SignedUp" class="sign-up-in-button"
-        >sign in</q-btn
+        >sign up</q-btn
       >
     </p>
   </span>
 
   <span v-else class="signed-up-requested">
     <p>
-      no account?
+      already signed up?
+
       <q-btn @click="SignedUp = !SignedUp" class="sign-up-in-button"
-        >sign up</q-btn
+        >sign in</q-btn
       >
     </p>
   </span>

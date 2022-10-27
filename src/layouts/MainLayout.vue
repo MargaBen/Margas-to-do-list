@@ -123,10 +123,11 @@ export default defineComponent({
           <q-avatar>
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
           </q-avatar>
-          Title
+          My todo list
         </q-toolbar-title>
 
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
+        <!-- <q-btn dense flat round icon="menu" @click="toggleRightDrawer()" /> -->
+        <q-btn icon-right="logout" @click="logOut()" />
       </q-toolbar>
 
       <!-- <q-tabs align="left">
@@ -146,19 +147,28 @@ export default defineComponent({
   </q-layout>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
+import { useUserStore } from "src/stores/user";
+import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
+import { useQuasar } from "quasar";
 
-export default {
-  setup() {
-    const rightDrawerOpen = ref(false);
+const $q = useQuasar();
+const $userStore = useUserStore();
+const { user } = storeToRefs($userStore);
+const router = useRouter();
 
-    return {
-      rightDrawerOpen,
-      toggleRightDrawer() {
-        rightDrawerOpen.value = !rightDrawerOpen.value;
-      },
-    };
-  },
-};
+// const rightDrawerOpen = ref(false);
+
+// const toggleRightDrawer = () =>
+//   (rightDrawerOpen.value = !rightDrawerOpen.value);
+
+async function logOut() {
+  console.log($userStore);
+  $userStore.signOut();
+  alert(`you are signed out ${user.value}`);
+
+  router.push({ path: "/auth" });
+}
 </script>

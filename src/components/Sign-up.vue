@@ -34,7 +34,7 @@ async function goSignUp() {
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-y-md column">
-      <q-form @submit="goSignUp()" class="q-gutter signup-class" :width="550">
+      <q-form @submit="goSignUp()" class="q-gutter signup-class">
         <q-input
           v-model="email"
           :dense="dense"

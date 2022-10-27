@@ -36,7 +36,7 @@ async function signIn() {
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-y-md column">
-      <q-form @submit="signIn" class="q-gutter signup-class" :width="550">
+      <q-form @submit="signIn" class="q-gutter signup-class">
         <q-input v-model="email" dense type="email" label="e-mail" hint="">
           <template v-slot:append> <q-icon name="mail" /> </template>
         </q-input>
