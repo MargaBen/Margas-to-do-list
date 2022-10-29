@@ -14,19 +14,19 @@ const SignedUp = ref(true);
 
   <span v-if="SignedUp" class="signed-up-requested">
     <p>
-      no account?
+      You don´t have yet an account?
       <q-btn @click="SignedUp = !SignedUp" class="sign-up-in-button"
-        >sign up</q-btn
+        >register</q-btn
       >
     </p>
   </span>
 
   <span v-else class="signed-up-requested">
     <p>
-      already signed up?
+      You are already registered
 
       <q-btn @click="SignedUp = !SignedUp" class="sign-up-in-button"
-        >sign in</q-btn
+        >log in</q-btn
       >
     </p>
   </span>

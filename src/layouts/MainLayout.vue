@@ -127,7 +127,7 @@ export default defineComponent({
         </q-toolbar-title>
 
         <!-- <q-btn dense flat round icon="menu" @click="toggleRightDrawer()" /> -->
-        <q-btn icon-right="logout" @click="logOut()" />
+        <q-btn label="logout" icon-right="logout" @click="logOut()" />
       </q-toolbar>
 
       <!-- <q-tabs align="left">
@@ -167,7 +167,7 @@ const router = useRouter();
 async function logOut() {
   console.log($userStore);
   $userStore.signOut();
-  alert(`you are signed out ${user.value}`);
+  alert("you are signed out");
 
   router.push({ path: "/auth" });
 }
