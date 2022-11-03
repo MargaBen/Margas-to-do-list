@@ -77,7 +77,7 @@ async function goSignUp() {
           </template>
         </q-input>
         <div>
-          <q-btn label="Submit" type="submit" color="primary" />
+          <q-btn label="Register" type="submit" color="primary" />
         </div>
       </q-form>
     </div>

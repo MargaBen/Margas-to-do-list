@@ -117,13 +117,18 @@ export default defineComponent({
 
 <template>
   <q-layout view="hHr lpR fFf">
-    <q-header bordered class="bg-primary text-white" height-hint="98">
+    <q-header
+      elevated
+      bordered
+      class="bg-primary text-white q-px-lg q-pt-lg q-pb-lg"
+      height-hint="98"
+    >
       <q-toolbar>
         <q-toolbar-title>
-          <q-avatar>
+          <!-- <q-avatar>
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          My todo list
+          </q-avatar> -->
+          Margas todo list
         </q-toolbar-title>
 
         <!-- <q-btn dense flat round icon="menu" @click="toggleRightDrawer()" /> -->
@@ -142,7 +147,11 @@ export default defineComponent({
     </q-drawer> -->
 
     <q-page-container>
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </q-page-container>
   </q-layout>
 </template>
@@ -172,3 +181,10 @@ async function logOut() {
   router.push({ path: "/auth" });
 }
 </script>
+
+<style scoped>
+/* header.q-header.q-layout__section--marginal.fixed-top.q-header--bordered.bg-primary.text-white {
+    height: 100px;
+    padding: 25px;
+} */
+</style>

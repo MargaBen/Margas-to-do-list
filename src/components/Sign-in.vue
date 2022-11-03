@@ -57,7 +57,7 @@ async function signIn() {
           </template>
         </q-input>
         <div>
-          <q-btn label="Submit" type="submit" color="primary" />
+          <q-btn label="Login" type="submit" color="primary" />
         </div>
       </q-form>
     </div>
