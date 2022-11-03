@@ -120,7 +120,7 @@ export default defineComponent({
     <q-header
       elevated
       bordered
-      class="bg-primary text-white q-px-lg q-pt-lg q-pb-lg"
+      class="bg-orange-9 text-white q-px-lg q-pt-lg q-pb-lg"
       height-hint="98"
     >
       <q-toolbar>

@@ -24,7 +24,6 @@ onMounted(async () => {
     } else {
       // continue to dashboard
       router.push({ path: "/" });
-      console.log("loggedin 😇 🧝‍♀️");
     }
   } catch (e) {
     console.log(e);
