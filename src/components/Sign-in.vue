@@ -25,7 +25,7 @@ async function signIn() {
       await userStore.signIn(email.value, password.value);
       router.push({ path: "/" });
     } catch {
-      alert("try again... something is wrong 😢");
+      alert("try again... something is wrong");
     } finally {
       loading.value = false;
     }
