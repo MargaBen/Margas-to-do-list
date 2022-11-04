@@ -4,10 +4,10 @@ This APP is a SPA developed with Vue, Quasar and Supabase.
 
 It is a simple To do List with the following features:
 
-Fully responsive for desktop and mobile devices;
-Login-Register-Logout;
-Auth handled by Supabase;
-Tasks handled locally
+Fully responsive for desktop and mobile devices/
+Login-Register-Logout/
+Auth handled by Supabase/
+Tasks handled locally/
 Tasks can be created, read, updated (toggle done/undone) and deleted: CRUD
 
 ## Install the dependencies
