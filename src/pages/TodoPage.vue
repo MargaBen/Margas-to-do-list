@@ -50,8 +50,9 @@ export default {
   },
   methods: {
     deleteTask(index) {
-      this.tasks.splice(index, 1);
-      alert("the task has been deleted!");
+      confirm("do you want to delete this task?")
+        ? this.tasks.splice(index, 1)
+        : console.log("task is not deleted");
     },
     addTask() {
       this.tasks.push({
